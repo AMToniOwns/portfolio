@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Antonio Mendes</title>
+  <meta name="description" content="Antonio Mendes, software engineer in the UK. .NET, Vue, TypeScript and Swift. Projects, live simulators and contact." />
+  <meta name="theme-color" content="#0d0e0c" />
+  <meta property="og:title" content="Antonio Mendes, Software Engineer" />
+  <meta property="og:description" content="Statistics engines, APIs, web apps and iOS. See the projects and try them in your browser." />
+  <meta property="og:image" content="assets/shots/duellab-results-dark.webp" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="cursor" aria-hidden="true"><span></span></div>
+
+  <header class="nav">
+    <a href="#top" class="logo" aria-label="Antonio Mendes, back to top">AM<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#lab">Lab</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-end">
+      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme"><span></span></button>
+      <a class="pill" href="mailto:antonio99-mendes@live.co.uk">Let's talk</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-meta mono">
+        <span><b class="dot"></b> Open to opportunities</span>
+        <span>Based in the UK</span>
+      </div>
+      <h1 class="hero-title" aria-label="Antonio Mendes">
+        <span class="line"><span class="split">ANTONIO</span></span>
+        <span class="line"><span class="split outline">MENDES</span></span>
+      </h1>
+      <div class="hero-foot">
+        <p class="hero-lede">Software engineer. I build software end to end: <em>statistics engines</em>, <em>APIs</em>, <em>web apps</em> and <em>iOS</em>, with the tests and write-ups to back them.</p>
+        <a href="#work" class="scroll-cue mono" aria-label="Scroll to work">Scroll <span>↓</span></a>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>C#</span><span>.NET 10</span><span>ASP.NET Core</span><span>Vue 3</span><span>TypeScript</span><span>Swift 6</span><span>PostgreSQL</span><span>SQLite</span><span>Docker</span><span>Playwright</span><span>GitHub Actions</span><span>Java</span>
+        <span>C#</span><span>.NET 10</span><span>ASP.NET Core</span><span>Vue 3</span><span>TypeScript</span><span>Swift 6</span><span>PostgreSQL</span><span>SQLite</span><span>Docker</span><span>Playwright</span><span>GitHub Actions</span><span>Java</span>
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <section class="intro wrap reveal">
+      <p class="big-copy">I like problems with a <span class="hl">right answer</span> you can prove. When a simulator says 57.7%, it should match the exact maths. When an app says you can claim £5,239.73, it should reconcile to the penny. And when you run it again, you should get the same result.</p>
+      <div class="stats">
+        <div><b data-count="171">0</b><span>backend tests in DuelLab</span></div>
+        <div><b data-count="10">0</b><span>architecture decision records</span></div>
+        <div><b data-count="100000" data-format="k">0</b><span>hands per simulation run</span></div>
+        <div><b data-count="3">0</b><span>platforms: Windows, macOS, Docker</span></div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="work">
+      <div class="wrap section-head reveal">
+        <span class="mono idx">01 / Selected work</span>
+        <h2 class="display">Projects</h2>
+      </div>
+
+      <!-- DuelLab -->
+      <article class="project wrap" id="duellab">
+        <div class="project-head reveal">
+          <div>
+            <span class="mono tag">2026 · Full stack · Personal project</span>
+            <h3 class="display-md">DuelLab</h3>
+          </div>
+          <div class="project-links">
+            <a class="pill ghost" href="https://github.com/AMToniOwns/DuelLab" target="_blank" rel="noopener">Code on GitHub ↗</a>
+            <a class="pill" href="#hand-lab">Try the simulator ↓</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-copy reveal">
+            <p class="lead">A deck builder and opening-hand analyser for the Yu-Gi-Oh! trading card game. You label your cards (starters, extenders, bricks), and DuelLab simulates thousands of opening hands and shows the <strong>exact probability</strong> next to every simulated one.</p>
+            <ul class="facts">
+              <li><b>Backend</b> ASP.NET Core on .NET 10, a modular monolith with Domain, Application, Simulator and Infrastructure layers. EF Core on PostgreSQL, or SQLite for the desktop build.</li>
+              <li><b>Maths</b> A seeded xoshiro256** generator so every run can be reproduced, exact multivariate hypergeometric probabilities, and 95% Wilson intervals.</li>
+              <li><b>Frontend</b> Vue 3, Pinia and TypeScript, with hand-built SVG charts and light and dark themes.</li>
+              <li><b>Quality</b> 171 xUnit tests plus Vitest and Playwright suites. CI runs all of them, checks for missing migrations, then builds, smoke-tests and publishes a Docker image.</li>
+              <li><b>Shipping</b> One Docker image, plus self-contained downloads for Windows and macOS (Apple Silicon and Intel).</li>
+            </ul>
+            <div class="chips"><span>C#</span><span>.NET 10</span><span>EF Core</span><span>PostgreSQL</span><span>SQLite</span><span>Vue 3</span><span>Pinia</span><span>TypeScript</span><span>Vite</span><span>xUnit</span><span>Vitest</span><span>Playwright</span><span>Docker</span><span>GitHub Actions</span></div>
+          </div>
+
+          <figure class="gallery reveal" data-gallery>
+            <div class="gallery-bar">
+              <div class="tabs" role="tablist" aria-label="DuelLab screens">
+                <button role="tab" aria-selected="true" data-shot="results">Results</button>
+                <button role="tab" aria-selected="false" data-shot="compare">Compare</button>
+                <button role="tab" aria-selected="false" data-shot="editor">Deck editor</button>
+                <button role="tab" aria-selected="false" data-shot="dashboard">Dashboard</button>
+              </div>
+              <button class="mode-btn mono" type="button" data-mode>Dark UI</button>
+            </div>
+            <div class="browser">
+              <div class="browser-top"><i></i><i></i><i></i><span class="mono">127.0.0.1:5180</span></div>
+              <button class="shot-wrap" type="button" aria-label="Open screenshot full size">
+                <img src="assets/shots/duellab-results.webp" alt="DuelLab results: simulated and exact probabilities for nine scenarios with confidence intervals" loading="lazy" width="2160" height="1350" />
+              </button>
+            </div>
+            <figcaption class="mono cap">Captured from a local run of DuelLab, seeded with a demo deck. <span data-caption>Simulated share (bar), exact probability (tick) and 95% interval (whisker).</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Mile Log -->
+      <article class="project wrap" id="milelog">
+        <div class="project-head reveal">
+          <div>
+            <span class="mono tag">2026 · iOS · In progress</span>
+            <h3 class="display-md">Mile Log</h3>
+          </div>
+          <div class="project-links">
+            <a class="pill ghost" href="https://github.com/AMToniOwns/Antonio" target="_blank" rel="noopener">Code on GitHub ↗</a>
+            <a class="pill" href="#trip-sim">Run the simulators ↓</a>
+          </div>
+        </div>
+        <div class="project-body flip">
+          <div class="project-copy reveal">
+            <p class="lead">An iPhone mileage log for UK sole traders who claim HMRC's flat mileage rates. It detects drives automatically, you confirm which are business, and it works out the claim to the penny, ready for your accountant or FreeAgent.</p>
+            <ul class="facts">
+              <li><b>TripDetection</b> A pure Swift 6 state machine (idle → candidate → driving → stopping): events in, effects out, with no Core Location dependency, so it can be replayed and tested anywhere.</li>
+              <li><b>RateEngine</b> A versioned HMRC rates file and the trips-to-claim function. It handles the 10,000-mile threshold, tax-year splits, basis-period reform and largest-remainder pennies so exports reconcile exactly.</li>
+              <li><b>Privacy by design</b> No accounts and no server in v1. Data stays on the phone and in the user's own iCloud, and GPS trails are deleted 30 days after a trip is confirmed.</li>
+              <li><b>Process</b> Every stage is reviewed by a five-advisor panel and passes only on a unanimous vote. Each decision is logged with its reason.</li>
+            </ul>
+            <div class="chips"><span>Swift 6</span><span>SwiftPM</span><span>Core Location</span><span>Core Motion</span><span>Core Data</span><span>CloudKit</span><span>StoreKit 2</span><span>XCTest</span></div>
+          </div>
+          <div class="state-card reveal" aria-label="Trip detection state machine">
+            <span class="mono tag">TripDetection · state machine</span>
+            <svg viewBox="0 0 460 300" class="fsm" role="img" aria-label="Diagram: idle goes to candidate on wake; candidate goes to driving on driving evidence, or back to idle on timeout; driving goes to stopping when slower than 2 m/s; stopping goes back to driving when moving again, or saves the trip and returns to idle after 4 minutes stopped.">
+              <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+              <g class="edges" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#ar)">
+                <path d="M142 58 H 306" />
+                <path d="M318 84 C 270 118, 190 118, 142 84" stroke-dasharray="4 4" />
+                <path d="M380 92 V 206" />
+                <path d="M318 242 H 144" />
+                <path d="M142 216 C 190 180, 270 180, 318 216" stroke-dasharray="4 4" />
+                <path d="M80 206 V 92" />
+              </g>
+              <g class="nodes mono" font-size="13">
+                <g data-node="idle"><rect x="20" y="40" width="120" height="50" rx="25"/><text x="80" y="70">IDLE</text></g>
+                <g data-node="candidate"><rect x="320" y="40" width="120" height="50" rx="25"/><text x="380" y="70">CANDIDATE</text></g>
+                <g data-node="driving"><rect x="320" y="210" width="120" height="50" rx="25"/><text x="380" y="240">DRIVING</text></g>
+                <g data-node="stopping"><rect x="20" y="210" width="120" height="50" rx="25"/><text x="80" y="240">STOPPING</text></g>
+              </g>
+              <g class="labels mono" font-size="10.5">
+                <text x="230" y="50">wake</text>
+                <text x="230" y="130">timeout, no evidence</text>
+                <text x="390" y="146" text-anchor="start">3 fast</text>
+                <text x="390" y="159" text-anchor="start">fixes</text>
+                <text x="390" y="172" text-anchor="start">+300 m</text>
+                <text x="230" y="276">slower than 2 m/s</text>
+                <text x="230" y="180">moving again</text>
+                <text x="90" y="146" text-anchor="start">stopped</text>
+                <text x="90" y="159" text-anchor="start">4 min:</text>
+                <text x="90" y="172" text-anchor="start">trip saved</text>
+              </g>
+            </svg>
+            <p class="mono small">Thresholds are the package defaults from <code>DetectorConfig</code>.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Origin -->
+      <article class="project wrap" id="origin">
+        <div class="project-head reveal">
+          <div>
+            <span class="mono tag">2020 · Java · Where it started</span>
+            <h3 class="display-md">Yugioh-Calc</h3>
+          </div>
+          <div class="project-links">
+            <a class="pill ghost" href="https://github.com/AMToniOwns/Yugioh-Calc" target="_blank" rel="noopener">Code on GitHub ↗</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-copy reveal">
+            <p class="lead">My first go at the question DuelLab answers: <em>how often does this deck open well?</em> A Java console program that shuffles a 40-card list, draws five and brute-forces the combos that work.</p>
+            <p>Six years on, the same idea became a tested, reproducible engine with exact maths, a web UI and installers. The commit history shows the progression, and the comments are honest about the shortcuts (<code>"should definitely without a doubt be using a map here"</code>).</p>
+            <div class="chips"><span>Java</span><span>Monte Carlo</span></div>
+          </div>
+          <div class="terminal reveal" aria-label="Output of running YCSLONDON.java">
+            <div class="browser-top"><i></i><i></i><i></i><span class="mono">~/yugioh-calc</span></div>
+<pre class="mono"><span class="c">$</span> javac YCSLONDON.java &amp;&amp; java YCSLONDON
+-------------------------
+-printing the sample hand
+Spinny
+Snake
+Superpoly
+Rage
+JackJag
+
+<span class="ok">true, combo = Spinny-Snake</span>
+-------------------------
+-printing the sample hand
+Gazelle
+Jackalope
+Will
+Spinny
+Superpoly
+
+<span class="ok">true, combo = Gazelle</span>
+-------------------------
+overall percentage of succesful hands:
+<span class="ok">1.0</span><span class="caret">▋</span></pre>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- LAB -->
+    <section id="lab" class="lab">
+      <div class="wrap section-head reveal">
+        <span class="mono idx">02 / Lab</span>
+        <h2 class="display">Try it <span class="outline">live</span></h2>
+        <p class="section-sub">The core logic of two projects, ported to run in your browser. Nothing is sent anywhere.</p>
+      </div>
+
+      <!-- Hand Lab -->
+      <div class="sim wrap reveal" id="hand-lab">
+        <div class="sim-head">
+          <div>
+            <span class="mono tag">From DuelLab</span>
+            <h3 class="display-sm">Opening hand lab</h3>
+            <p>Set up a deck and draw thousands of hands. The simulation uses the same seeded xoshiro256** generator as DuelLab, and the exact figure comes from the hypergeometric distribution. Watch the two agree.</p>
+          </div>
+        </div>
+        <div class="sim-grid">
+          <form class="controls" id="hl-form" onsubmit="return false">
+            <label>Deck size <output data-for="deck">40</output><input type="range" name="deck" min="40" max="60" value="40" /></label>
+            <label><span><i class="sw s"></i>Starters</span> <output data-for="starters">12</output><input type="range" name="starters" min="0" max="24" value="12" /></label>
+            <label><span><i class="sw e"></i>Extenders</span> <output data-for="extenders">8</output><input type="range" name="extenders" min="0" max="20" value="8" /></label>
+            <label><span><i class="sw b"></i>Bricks</span> <output data-for="bricks">4</output><input type="range" name="bricks" min="0" max="15" value="4" /></label>
+            <div class="row">
+              <label class="seg-label">Hand
+                <span class="seg" role="radiogroup" aria-label="Hand size">
+                  <button type="button" data-hand="5" aria-pressed="true">5 · first</button>
+                  <button type="button" data-hand="6" aria-pressed="false">6 · second</button>
+                </span>
+              </label>
+            </div>
+            <div class="row">
+              <label class="seed">Seed <input type="number" name="seed" value="20261117" min="0" /></label>
+              <label class="seed">Hands
+                <select name="samples"><option>1000</option><option selected>10000</option><option>50000</option><option>100000</option></select>
+              </label>
+            </div>
+            <button class="pill run" type="button" id="hl-run">Simulate ▸</button>
+            <p class="mono small warn" id="hl-warn" hidden></p>
+          </form>
+          <div class="sim-out">
+            <div class="hand" id="hl-hand" aria-live="polite"></div>
+            <div class="bars" id="hl-bars"></div>
+            <p class="mono small legend"><i class="lg bar"></i>simulated <i class="lg tick"></i>exact <i class="lg ci"></i>95% interval · <span id="hl-meta"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trip simulator -->
+      <div class="sim wrap reveal" id="trip-sim">
+        <div class="sim-head">
+          <div>
+            <span class="mono tag">From Mile Log</span>
+            <h3 class="display-sm">Trip detector</h3>
+            <p>Pick a journey and watch the state machine decide when a drive starts and ends. Notice the traffic jam: the car stops, but it moves again before the four-minute timeout, so the trip isn't split in two. This is a simplified version of the Swift package, using its default thresholds. The real one also filters bad GPS fixes, reads Core Motion, fills gaps and recovers missed drives.</p>
+          </div>
+        </div>
+        <div class="trip">
+          <div class="trip-controls">
+            <div class="seg" role="radiogroup" aria-label="Journey">
+              <button type="button" data-route="commute" aria-pressed="true">Commute with a jam</button>
+              <button type="button" data-route="walk" aria-pressed="false">Walk to the shop</button>
+              <button type="button" data-route="hop" aria-pressed="false">Very short hop</button>
+            </div>
+            <div class="seg" role="radiogroup" aria-label="Speed">
+              <button type="button" data-rate="30" aria-pressed="false">30×</button>
+              <button type="button" data-rate="60" aria-pressed="true">60×</button>
+              <button type="button" data-rate="180" aria-pressed="false">180×</button>
+            </div>
+            <button class="pill run" type="button" id="trip-run">Play ▸</button>
+          </div>
+          <div class="trip-stage">
+            <div class="road"><div class="road-line"></div><div class="car" id="trip-car" aria-hidden="true"></div><div class="trip-flag start">A</div></div>
+            <div class="phases mono" id="trip-phases">
+              <span data-p="idle" class="on">Idle</span><span data-p="candidate">Candidate</span><span data-p="driving">Driving</span><span data-p="stopping">Stopping</span>
+            </div>
+            <svg class="speed" id="trip-speed" viewBox="0 0 600 120" preserveAspectRatio="none" aria-label="Speed over time"></svg>
+            <p class="mono small chart-note">Speed over time. Dashed lines: 6 m/s (driving evidence) and 2 m/s (stopped).</p>
+            <div class="readouts mono">
+              <div><span>Clock</span><b id="trip-clock">08:00:00</b></div>
+              <div><span>Speed</span><b id="trip-mph">0 mph</b></div>
+              <div><span>Trip</span><b id="trip-miles">0.00 mi</b></div>
+              <div><span>Claim</span><b id="trip-claim">£0.00</b></div>
+            </div>
+          </div>
+          <ol class="log mono" id="trip-log" aria-live="polite"><li class="dim">Press play.</li></ol>
+        </div>
+      </div>
+
+      <!-- Claim calculator -->
+      <div class="sim wrap reveal" id="claim">
+        <div class="sim-head">
+          <div>
+            <span class="mono tag">From Mile Log · RateEngine</span>
+            <h3 class="display-sm">HMRC mileage claim</h3>
+            <p>Simplified expenses for a sole trader. Cars and vans get the first-band rate for the first 10,000 business miles in the year and 25p a mile after that. Motorcycles get a flat 24p. The rates come from the app's versioned <code>rates.json</code>.</p>
+          </div>
+        </div>
+        <div class="claim">
+          <div class="controls">
+            <label>Business miles <output data-for="miles">12,500</output><input type="range" id="cl-miles" min="0" max="25000" step="50" value="12500" /></label>
+            <div class="row">
+              <span class="seg" role="radiogroup" aria-label="Vehicle">
+                <button type="button" data-veh="car" aria-pressed="true">Car or van</button>
+                <button type="button" data-veh="moto" aria-pressed="false">Motorcycle</button>
+              </span>
+              <span class="seg" role="radiogroup" aria-label="Tax year">
+                <button type="button" data-ty="2025" aria-pressed="false">2025/26</button>
+                <button type="button" data-ty="2026" aria-pressed="true">2026/27</button>
+              </span>
+            </div>
+          </div>
+          <div class="claim-out">
+            <div class="claim-total"><span class="mono">You can claim</span><b id="cl-total">£0</b></div>
+            <div class="claim-bar" id="cl-bar"><i class="b1"></i><i class="b2"></i><span class="mark mono">10,000</span></div>
+            <ul class="claim-lines mono" id="cl-lines"></ul>
+          </div>
+        </div>
+        <p class="mono small note">Illustration only, not tax advice. The full engine also splits accounting periods across tax years and counts the threshold across all your vehicles.</p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="skills wrap">
+      <div class="section-head reveal">
+        <span class="mono idx">03 / Toolkit</span>
+        <h2 class="display">Skills</h2>
+      </div>
+      <div class="skill-grid">
+        <div class="skill reveal"><span class="mono n">A</span><h4>Languages</h4><p>C#, TypeScript, JavaScript, Swift, Java, SQL, HTML and CSS</p></div>
+        <div class="skill reveal"><span class="mono n">B</span><h4>Backend</h4><p>ASP.NET Core (.NET 10), EF Core and migrations, REST and OpenAPI, RFC 9457 problem details, PostgreSQL, SQLite</p></div>
+        <div class="skill reveal"><span class="mono n">C</span><h4>Frontend</h4><p>Vue 3, Pinia, Vue Router, Vite, Tailwind CSS, accessible forms, hand-built SVG data visualisation, light and dark themes</p></div>
+        <div class="skill reveal"><span class="mono n">D</span><h4>Mobile</h4><p>Swift 6 and SwiftPM, concurrency-safe value types, Core Location and Core Motion strategy, Core Data with CloudKit, StoreKit 2</p></div>
+        <div class="skill reveal"><span class="mono n">E</span><h4>Testing</h4><p>xUnit, Vitest, Vue Test Utils, Playwright end-to-end tests, XCTest, integration tests against throwaway databases</p></div>
+        <div class="skill reveal"><span class="mono n">F</span><h4>Delivery</h4><p>GitHub Actions CI, Docker and GHCR, self-contained Windows and macOS builds, versioned releases</p></div>
+        <div class="skill reveal"><span class="mono n">G</span><h4>Maths and data</h4><p>Monte Carlo simulation, seeded PRNGs, hypergeometric probabilities, confidence intervals, money arithmetic that reconciles to the penny</p></div>
+        <div class="skill reveal"><span class="mono n">H</span><h4>How I work</h4><p>Architecture decision records, plain-English specs, privacy by design (UK GDPR), reproducible results, small reviewed steps</p></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <span class="mono idx reveal">04 / Contact</span>
+        <h2 class="contact-title reveal"><span>Let's build</span><span class="outline">something</span></h2>
+        <a class="email reveal" href="mailto:antonio99-mendes@live.co.uk">antonio99-mendes@live.co.uk <span>↗</span></a>
+        <div class="socials reveal">
+          <a href="https://github.com/AMToniOwns" target="_blank" rel="noopener"><span class="mono">01</span>GitHub</a>
+          <a href="https://www.linkedin.com/in/REPLACE-WITH-YOUR-HANDLE" target="_blank" rel="noopener" data-linkedin><span class="mono">02</span>LinkedIn</a>
+          <a href="mailto:antonio99-mendes@live.co.uk"><span class="mono">03</span>Email</a>
+        </div>
+      </div>
+      <footer class="foot wrap mono">
+        <span>© <span id="year">2026</span> Antonio Mendes</span>
+        <span>mendes.io</span>
+        <a href="#top">Back to top ↑</a>
+      </footer>
+    </section>
+  </main>
+
+  <dialog class="lightbox" id="lightbox"><button class="close mono" type="button" aria-label="Close">Close ✕</button><img alt="" /></dialog>
+
+  <script src="js/main.js"></script>
+  <script src="js/hand-lab.js"></script>
+  <script src="js/trip-sim.js"></script>
+</body>
+</html>
