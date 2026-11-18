@@ -82,9 +82,9 @@
   /* ---------- Reveal + counters ---------- */
   const fmt = (n, f) => f === 'k' ? (n >= 1000 ? Math.round(n / 1000) + 'k' : String(n)) : n.toLocaleString('en-GB');
   const countUp = el => {
-    const end = +el.dataset.count, f = el.dataset.format, dur = 1400, t0 = performance.now();
-    const step = now => { const p = Math.min(1, (now - t0) / dur); el.textContent = fmt(Math.round(end * (1 - (1 - p) ** 3)), f); if (p < 1) requestAnimationFrame(step); };
-    reduced ? (el.textContent = fmt(end, f)) : requestAnimationFrame(step);
+    const end = +el.dataset.count, f = el.dataset.format, sfx = el.dataset.suffix || '', dur = 1400, t0 = performance.now();
+    const step = now => { const p = Math.min(1, (now - t0) / dur); el.textContent = fmt(Math.round(end * (1 - (1 - p) ** 3)), f) + sfx; if (p < 1) requestAnimationFrame(step); };
+    reduced ? (el.textContent = fmt(end, f) + sfx) : requestAnimationFrame(step);
   };
   const io = new IntersectionObserver(entries => entries.forEach(en => {
     if (!en.isIntersecting) return;
