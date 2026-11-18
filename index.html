@@ -25,6 +25,8 @@
     <a href="#top" class="logo" aria-label="Antonio Mendes, back to top">AM<i>.</i></a>
     <nav aria-label="Main">
       <a href="#work">Work</a>
+      <a href="#apps">Apps</a>
+      <a href="#games">Games</a>
       <a href="#lab">Lab</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -230,10 +232,121 @@ overall percentage of succesful hands:
       </article>
     </section>
 
+    <!-- APPS -->
+    <section id="apps" class="apps">
+      <div class="wrap section-head reveal">
+        <span class="mono idx">02 / Day job</span>
+        <h2 class="display">Work <span class="outline">apps</span></h2>
+        <p class="section-sub">The lottery apps I work on for Canadian operators, rebuilt as small playable demos. Switch apps with the tabs, then try each journey from the app's own tab bar. Everything is fake data and runs in your browser.</p>
+      </div>
+
+      <div class="switcher wrap reveal" id="app-switcher">
+        <div class="tabs switcher-tabs" role="tablist" aria-label="Work apps">
+          <button role="tab" aria-selected="true" data-app="draw" id="tab-draw" aria-controls="app-panel">Draw-game app</button>
+          <button role="tab" aria-selected="false" data-app="native" id="tab-native" aria-controls="app-panel">Native rewrite</button>
+          <button role="tab" aria-selected="false" data-app="retail" id="tab-retail" aria-controls="app-panel">Retail companion</button>
+        </div>
+
+        <div class="switcher-body" id="app-panel" role="tabpanel" aria-labelledby="tab-draw">
+          <div class="device-col">
+            <div class="device" data-accent="draw">
+              <div class="device-notch" aria-hidden="true"></div>
+              <div class="app-screen">
+                <header class="app-top"><b class="app-name" id="app-name"></b><span class="mono app-bal" id="app-bal"></span></header>
+                <div class="app-body" id="app-body" aria-live="polite"></div>
+                <nav class="app-nav" id="app-nav" aria-label="App journeys"></nav>
+              </div>
+            </div>
+            <p class="mono small device-note">Demo with fake data. No real accounts, payments or tickets.</p>
+          </div>
+
+          <div class="app-info" data-info="draw">
+            <span class="mono tag">2021 to now · iOS · .NET MAUI</span>
+            <h3 class="display-sm">Draw-game app</h3>
+            <p class="lead">A Canadian lottery operator's main app: buy draw tickets, check results, and manage money and play limits. I've worked on its iOS app since 2021 and I'm one of its most active contributors.</p>
+            <ul class="facts">
+              <li><b>Role</b> iOS engineer: features, bug fixes, releases and platform upgrades.</li>
+              <li><b>Moving to .NET 9</b> I upgraded the Data, Domain and Presentation layers and the test project from Xamarin to .NET 9 and MAUI, and fixed the crashes the upgrade exposed, without a rewrite.</li>
+              <li><b>iOS 26 crashes</b> On iOS 26 the garbage collector could free native handles that the withdrawal screens and a carousel still held. I made those view controllers hold and check their handles, and turned off the new Liquid Glass look until the design caught up.</li>
+              <li><b>Play-safe journeys</b> I built the multi-step voluntary self-exclusion flow and deposit fixes, keeping behaviour and copy in step with the Android app.</li>
+            </ul>
+            <div class="chips"><span>C#</span><span>.NET 9</span><span>MAUI</span><span>Xamarin.iOS</span><span>Clean architecture</span><span>MVP</span><span>NUnit</span><span>SpecFlow</span><span>WidgetKit</span><span>Jenkins</span><span>fastlane</span></div>
+          </div>
+
+          <div class="app-info" data-info="native" hidden>
+            <span class="mono tag">2025 to now · iOS · Swift</span>
+            <h3 class="display-sm">Native rewrite</h3>
+            <p class="lead">The same operator's lottery app, rebuilt natively in Swift and SwiftUI. I joined the rewrite in 2025 and build features end to end, from repository and mapper to view model, SwiftUI views and tests.</p>
+            <ul class="facts">
+              <li><b>Role</b> iOS engineer on the rewrite: scanner, widgets, results, ticket history and account tools.</li>
+              <li><b>Ticket scanner</b> I handled every camera permission state and every claim outcome the server sends, including a new error for a ticket registered to another player, each with its own screen and tests.</li>
+              <li><b>Home-screen widgets</b> I built small, medium and large widgets fed by the draw-details API, with snapshot tests for each size.</li>
+              <li><b>Edge cases in money flows</b> I fixed budget tools failing after login, and mapped free plays and promotional draws so they show correctly in ticket history.</li>
+            </ul>
+            <div class="chips"><span>Swift</span><span>SwiftUI</span><span>Swift Testing</span><span>WidgetKit</span><span>AVFoundation</span><span>ViewState / NavState</span><span>Repositories + mappers</span><span>fastlane</span><span>Danger</span></div>
+          </div>
+
+          <div class="app-info" data-info="retail" hidden>
+            <span class="mono tag">iOS and Android · .NET MAUI</span>
+            <h3 class="display-sm">Retail companion</h3>
+            <p class="lead">A regional Canadian lottery operator's app, built around buying in store. Build a playslip on your phone, show its QR code at the counter, check your tickets and find a retailer near you.</p>
+            <ul class="facts">
+              <li><b>Role</b> Shared codebase with the draw-game app: the same Domain, Data and Presentation layers and release pipeline.</li>
+              <li><b>Playslip to QR</b> A built ticket (numbers, draws and add-ons) is encoded as a QR code the store terminal reads, and players can save named playslips to reuse.</li>
+              <li><b>Location rules</b> Online purchase is only allowed inside the operator's region, so the app checks the player's location before checkout.</li>
+              <li><b>One codebase, two platforms</b> Shared presenters and use cases drive native iOS and Android views, with copy served from a CMS.</li>
+            </ul>
+            <div class="chips"><span>C#</span><span>.NET MAUI</span><span>iOS</span><span>Android</span><span>MVP presenters</span><span>CMS-driven copy</span><span>NUnit</span><span>Jenkins</span><span>fastlane</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAMES -->
+    <section id="games" class="games">
+      <div class="wrap section-head reveal">
+        <span class="mono idx">03 / Instant games</span>
+        <h2 class="display">Game <span class="outline">player</span></h2>
+        <p class="section-sub">I build instant-win games for a European national lottery. These are simplified versions of four of them, made from scratch with new names and art, so you can see how a round runs and how a win is decided.</p>
+      </div>
+
+      <div class="player wrap reveal" id="game-player">
+        <div class="carts" role="radiogroup" aria-label="Pick a game" id="gp-carts"></div>
+
+        <div class="console" id="gp-console">
+          <div class="console-bar">
+            <span class="mono demo-badge">Demo · play money · no real money</span>
+            <span class="mono console-bal">Credits <b id="gp-bal">100</b></span>
+          </div>
+          <div class="console-screen" id="gp-screen">
+            <div class="gp-head">
+              <div><b class="gp-title" id="gp-title"></b><span class="mono gp-price" id="gp-price"></span></div>
+              <p class="gp-status mono" id="gp-status" aria-live="polite"></p>
+            </div>
+            <div class="gp-stage" id="gp-stage"></div>
+            <div class="gp-result" id="gp-result" hidden></div>
+          </div>
+          <div class="console-pad">
+            <div class="dpad" aria-label="Switch game">
+              <button type="button" class="dp l" data-dir="-1" aria-label="Previous game">◀</button>
+              <button type="button" class="dp r" data-dir="1" aria-label="Next game">▶</button>
+            </div>
+            <div class="console-btns">
+              <button type="button" class="cbtn b" id="gp-reveal" disabled><span>B</span>Reveal all</button>
+              <button type="button" class="cbtn a" id="gp-buy"><span>A</span>Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="gp-rules" id="gp-rules"></aside>
+        <p class="mono small note">Simplified recreations for a portfolio. The prizes and chances here are invented, not the real games' figures. Credits have no value and can't be bought or cashed out.</p>
+      </div>
+    </section>
+
     <!-- LAB -->
     <section id="lab" class="lab">
       <div class="wrap section-head reveal">
-        <span class="mono idx">02 / Lab</span>
+        <span class="mono idx">04 / Lab</span>
         <h2 class="display">Try it <span class="outline">live</span></h2>
         <p class="section-sub">The core logic of two projects, ported to run in your browser. Nothing is sent anywhere.</p>
       </div>
@@ -355,7 +468,7 @@ overall percentage of succesful hands:
     <!-- SKILLS -->
     <section id="skills" class="skills wrap">
       <div class="section-head reveal">
-        <span class="mono idx">03 / Toolkit</span>
+        <span class="mono idx">05 / Toolkit</span>
         <h2 class="display">Skills</h2>
       </div>
       <div class="skill-grid">
@@ -373,7 +486,7 @@ overall percentage of succesful hands:
     <!-- CONTACT -->
     <section id="contact" class="contact">
       <div class="wrap">
-        <span class="mono idx reveal">04 / Contact</span>
+        <span class="mono idx reveal">06 / Contact</span>
         <h2 class="contact-title reveal"><span>Let's build</span><span class="outline">something</span></h2>
         <a class="email reveal" href="mailto:antonio99-mendes@live.co.uk">antonio99-mendes@live.co.uk <span>↗</span></a>
         <div class="socials reveal">
@@ -395,5 +508,7 @@ overall percentage of succesful hands:
   <script src="js/main.js"></script>
   <script src="js/hand-lab.js"></script>
   <script src="js/trip-sim.js"></script>
+  <script src="js/app-switcher.js"></script>
+  <script src="js/game-player.js"></script>
 </body>
 </html>
